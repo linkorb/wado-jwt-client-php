@@ -1,5 +1,5 @@
 {
-  "name": "linkorb/wado-jwt",
+  "name": "linkorb/wado-jwt-client-php",
   "description": "WADO JWT client for PHP",
   "homepage": "http://www.github.com/linkorb/wado-jwt-client-php",
   "keywords": ["wado", "dicom", "jwt", "linkorb"],
