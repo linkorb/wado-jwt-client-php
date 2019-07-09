@@ -8,12 +8,14 @@ class Client
 {
     protected $key;
     protected $url;
+    protected $pacs;
 
-    public function __construct($url, $key, $algorithm)
+    public function __construct($url, $key, $algorithm, $pacs = null)
     {
         $this->url = $url;
         $this->key = $key;
         $this->algorithm = $algorithm;
+        $this->pacs = $pacs;
     }
 
     public function getJwt($studyUid, $seriesUid, $objectUid, $contentType)
@@ -27,6 +29,9 @@ class Client
             'objectUid' => $objectUid,
             'contentType' => $contentType
         ];
+        if ($this->pacs) {
+            $token['pacs'] = $this->pacs;
+        }
         $jwt = JWT::encode($token, $this->key, $this->algorithm);
         return $jwt;
     }
